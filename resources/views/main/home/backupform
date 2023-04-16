@@ -1,0 +1,49 @@
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_email" type="email" placeholder="Email" class="form-control" name="email">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_name" type="text" placeholder="Phone*" class="form-control" name="phone">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_name" type="text" placeholder="Marque et Modèle*" class="form-control" name="mark">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_phone" type="text" placeholder="Kilométrage*" class="form-control" name="mileage">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_phone" type="text" placeholder="Année*" class="form-control" name="year">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <input id="contactform_phone" type="text" placeholder="Code Postale*" class="form-control" name="zipCode">
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="mb-3">
+                  <select id="fuel" name="fuel">
+                    <option value='Diesel'>Diesel</option>
+                    <option value='Essence'>Essence</option>
+                    <option value='Plug-in Hybrid Diesel'>Plug-in Hybrid Diesel</option>
+                    <option value='Plug-in Hybrid Essence'>Plug-in Hybrid Essence</option>
+                    <option value='Mild Hybrid'>Mild Hybrid</option>
+                    <option value='Electric'>Electric</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <textarea id="contactform_message" class="form-control input-message" placeholder="Description" rows="7" name="message"></textarea>
+                </div>
+              </div>

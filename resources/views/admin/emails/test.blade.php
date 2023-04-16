@@ -1,0 +1,1 @@
+<p><a href="{{ route('login.for.offer', [$magicLink, $car->id]) }}">Lien magique</a></p>
