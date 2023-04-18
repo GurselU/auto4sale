@@ -83,7 +83,7 @@ car-details  -->
                         <div class="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
                             <h6>Visible sur photos</h6>
                             @foreach($assetPictures as $picture)
-                            <li><i class="fa fa-camera"></i> {{$picture->description}}</li>
+                            <li><i class="fa fa-check"></i> {{$picture->description}}</li>
                             @endforeach
                             <h6 class="pt-5">Autres points forts</h6>
                             @foreach($assets as $asset)
@@ -130,7 +130,6 @@ car-details  -->
                     </div>
                     @endif
                     <p class="text-danger pt-3">{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() != null ? 'Votre offre actuelle est de : ' : ''}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first()->offre ?? 'Vous n\'avez pas fait d\'offre'}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() == null ? '' : '€'}}</p>
-                    @if($car->status == 'available')
                     <div class="details-form contact-2 details-weight">
                         <form class="gray-form" action="{{ route('offer.store') }}" method="POST" enctype="multipart/form-data" id="send_enquiry_form">
                             @csrf
@@ -159,7 +158,6 @@ car-details  -->
                             </div>
                         </form>
                     </div>
-                    @endif
                     <div class="details-phone details-weight">
                         <div class="feature-box-3 grey-border">
                             <div class="icon">

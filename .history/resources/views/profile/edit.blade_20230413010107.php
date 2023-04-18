@@ -1,7 +1,7 @@
 @extends('main/layouts/app')
 
 @section('content')
-@include('admin.partials.smallheader')
+@include('admin/partials/header')
 
 @if (session()->has('error'))
 <div class="bg-danger text-white">

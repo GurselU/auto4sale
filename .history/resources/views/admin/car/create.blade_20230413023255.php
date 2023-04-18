@@ -1,7 +1,7 @@
 @extends('main.layouts.app')
 
 @section('content')
-@include('admin.partials.smallheader')
+@include('admin.partials.header')
 <section class="register-form page-section-ptb">
     <div class="container">
         <div class="row justify-content-center">

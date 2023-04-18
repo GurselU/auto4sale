@@ -129,8 +129,8 @@ car-details  -->
                         </div>
                     </div>
                     @endif
-                    <p class="text-danger pt-3">{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() != null ? 'Votre offre actuelle est de : ' : ''}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first()->offre ?? 'Vous n\'avez pas fait d\'offre'}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() == null ? '' : '€'}}</p>
                     @if($car->status == 'available')
+                    <p class="text-danger pt-3">{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() != null ? 'Votre offre actuelle est de : ' : ''}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first()->offre ?? 'Vous n\'avez pas fait d\'offre'}}{{$offers->where('user_id', Auth::user()->id)->where('car_id', $car->id)->first() == null ? '' : '€'}}</p>
                     <div class="details-form contact-2 details-weight">
                         <form class="gray-form" action="{{ route('offer.store') }}" method="POST" enctype="multipart/form-data" id="send_enquiry_form">
                             @csrf

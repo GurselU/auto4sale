@@ -1,7 +1,7 @@
 @extends('main.layouts.app')
 
 @section('content')
-@include('admin.partials.smallheader')
+@include('admin.partials.header')
 <div class="container">
     <h1 class="page-header text-center">Uploader les photos</h1>
     <div class="col-4">
