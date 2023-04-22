@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             ChassiSeeder::class,
             ContactSeeder::class,
             // SellerSeeder::class,
-            // CarSeeder::class,
+            CarSeeder::class,
             RoleSeeder::class,
             CounterSeeder::class,
             GearboxSeeder::class,

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Mail\NewCarMail;
 use App\Models\Form;
 use App\Models\News;
-use App\Models\NewsletterEmail;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -148,7 +147,7 @@ class FormController extends Controller
     {
         $record = Form::findOrFail($id);
         // dd($record->email);
-        NewsletterEmail::create([
+        News::create([
             'email' => $record->email,
         ]);
         $record->delete();

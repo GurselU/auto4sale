@@ -21,14 +21,14 @@ class UserSeeder extends Seeder
             "role_id"=> 1,
             "email"=> "gursel_unlu@hotmail.com",
             'password' => Hash::make('molengeek'),
-            "company"=> "GRS Network srl",
+            "company"=> "GRS Network",
             "vat"=> "0540.859.429",
-            "adres"=> "Lichtelarestraat 61",
+            "adres"=> "Lichtelarestraat",
             "zipcode"=> "9080",
             "country"=> "Belgie",
             "phone"=> "0471926597",
-            "maxYear"=> 30,
-            "maxBudget"=> 1000000,
+            "maxYear"=> 10,
+            "maxBudget"=> 30000,
             "created_at"=>now()
         ]);
         // DB::table("users")->insert([

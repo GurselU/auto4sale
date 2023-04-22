@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('molengeek'),
             "company"=> "GRS Network srl",
             "vat"=> "0540.859.429",
-            "adres"=> "Lichtelarestraat 61",
+            "adres"=> "Lichtelarestraat",
             "zipcode"=> "9080",
             "country"=> "Belgie",
             "phone"=> "0471926597",
