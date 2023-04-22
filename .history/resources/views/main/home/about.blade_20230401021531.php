@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row about custom-block-2">
             <div class="col-md-6">
-                <h2>A propos de MOIII </h2>
+                <h2>A propos de nous </h2>
                 <span>Ce qu'il vous faut en deux click, un enter. </span>
                 <p>Auto4Sale rationalise le processus de vente de votre véhicule d'occasion, en proposant des prix équitables après avoir évalué les offres de plus de 50 marchands dignes de confiance. Dites adieu aux escroqueries, longues attentes, déplacements multiples, offres ridicules - Auto4Sale vous promet une expérience efficace et sans stress. </p>
             </div>
