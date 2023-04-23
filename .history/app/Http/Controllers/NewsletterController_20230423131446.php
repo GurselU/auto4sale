@@ -72,9 +72,9 @@ class NewsletterController extends Controller
         $difference = $todayDate->diff($registrationDate);
         $vehicleAge = $difference->format('%a') / 365;
 
-        // $magicLink ='';
+        $magicLink ='';
 
-        // return view('admin.emails.newCar', compact('car', 'magicLink'));
+        return view('admin.emails.newCar', compact('car', 'magicLink'));
 
         $buyersBySms = User::whereHas('categories', function ($query) use ($car) {
             $query

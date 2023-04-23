@@ -2287,31 +2287,18 @@ margin-left: -17px; line-height: 50px; }
 
 
 /* My css */
-/* SMALL */
-
-input[type="checkbox"].ios8-switch-sm {
-  margin: 5px 0 0 10px;
-}
-input[type="checkbox"].ios8-switch-sm + label {
+input[type='checkbox'] {
+  /* remove browser chrome */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  /*add styling */
   position: relative;
-  padding: 0 0 0 32px;
-  line-height: 1.3em;
-}
-input[type="checkbox"].ios8-switch-sm + label:before {
-  width: 25px; /* x*5 */
-  height: 15px; /* x*3 */
-  border-radius: 10px; /* x*2 */
-}
-input[type="checkbox"].ios8-switch-sm + label:after {
-  width: 15px; /* x*3 */
-  height: 15px; /* x*3 */
-  border-radius: 10px; /* x*2 */
-}
-input[type="checkbox"].ios8-switch-sm + label:hover:after {
-  box-shadow: 0 0 3px rgba(0,0,0,0.3);
-}
-input[type="checkbox"].ios8-switch-sm:checked + label:after {
-  margin-left: 10px; /* x*2 */
-}
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #455A64;
+  overflow: hidden;
 
+}
 /* End my css */

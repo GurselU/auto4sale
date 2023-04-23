@@ -60,7 +60,7 @@ car-details  -->
                         @foreach($drowbackPictures as $picture)
                         <img class="img-fluid" src="{{asset($picture->location)}}" alt="">
                         @endforeach
-                        @if($drowbackPictures->count() < 1)
+                        @if($pictures->count() < 1)
                         <img class="img-fluid" src="{{asset('images/logo-dark.png')}}" alt="">
                         @endif
                     </div>

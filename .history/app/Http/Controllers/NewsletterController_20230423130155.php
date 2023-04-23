@@ -72,9 +72,9 @@ class NewsletterController extends Controller
         $difference = $todayDate->diff($registrationDate);
         $vehicleAge = $difference->format('%a') / 365;
 
-        // $magicLink ='';
+        $magicLink ='';
 
-        // return view('admin.emails.newCar', compact('car', 'magicLink'));
+        return view('admin.emails.newCar', compact('car', 'magicLink'));
 
         $buyersBySms = User::whereHas('categories', function ($query) use ($car) {
             $query
@@ -141,7 +141,7 @@ class NewsletterController extends Controller
             ]);
 
             $client->sms()->send(
-                new \Vonage\SMS\Message\SMS($buyer->phone, 'Webappfix', $car->mark . ' ' . $car->model . ' disponible sur Auto4Sale. Cliquez sur le lien pour faire votre offre ' . route('login.for.offer', [$magicLink, $car->id]))
+                new \Vonage\SMS\Message\SMS($buyer->phone, 'Webappfix', $car->mark . ' ' . $car->model . ' disponible sur Sellauto. Cliquez sur le lien pour faire votre offre ' . route('login.for.offer', [$magicLink, $car->id]))
             );
         }
 

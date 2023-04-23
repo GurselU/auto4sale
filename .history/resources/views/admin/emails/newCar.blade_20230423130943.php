@@ -1062,6 +1062,12 @@
           <th>Carburant</th>
         <td>{{$car->emissionClass->class}}</td>
     </tr>
+    <tr>
+          <th valign="top" height="0">Description</th>
+        <td valign="top" height="200" class="break-after">
+                {{$car->description}}
+            </td>
+    </tr>
     </tbody>
 </table>
 
@@ -1166,7 +1172,7 @@
                                                                                                style="font-size: 14px; font-family: 'Sellauto-Bold', Arial, sans-serif; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 0px; padding: 15px 0px; display: block; text-align: center;"
                                                                                                _label=""
                                                                                                data-wm-content-type="link-text"
-                                                                                            >Faire une offre</a>
+                                                                                            >{{__('carAvailable.makeOffer')}}</a>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>

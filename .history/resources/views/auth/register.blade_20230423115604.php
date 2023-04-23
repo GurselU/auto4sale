@@ -1,8 +1,13 @@
 @extends('main/layouts/app')
 
 @section('content')
-@include('admin.partials.smallheader')
+@include('main/partials/smallheader')
 
+@if (session()->has('error'))
+<div class="bg-danger text-white">
+    {{ session()->get('error') }}
+</div>
+@endif
 <!--=================================
  register-form  -->
 
@@ -11,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="section-title">
-                    <h2>modifiez vos donnees</h2>
+                    <h2>creer votre compte</h2>
                     <div class="separator"></div>
                 </div>
             </div>
@@ -19,63 +24,77 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-12">
                 <div class="gray-form">
-                    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        @method('patch')
 
                         <!-- Name -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Nom d'utilisateur* </label>
-                            <input id="name" class="form-control" type="text" value="{{$user->name}}" name="name" required>
+                            <input id="name" class="form-control" type="text" placeholder="Nom Prénom" name="name" required autofocus>
                         </div>
 
                         <!-- Email Address -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email* </label>
-                            <input id="email" class="form-control" type="email" value="{{$user->email}}" name="email" required>
+                            <input id="email" class="form-control" type="email" placeholder="Email" name="email" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe (minimum 8 caractères)*</label>
+                            <input id="password" class="form-control" type="password" placeholder="Mot de passe" name="password" required>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <label for="password_confirmation" class="form-label">Confirmez mot de passe*&nbsp;</label>
+                                <div id="pswdlabel"></div>
+                            </div>
+                            <input id="password_confirmation" class="form-control" onblur="pswdCheck()" type="password" placeholder="Confirmez mot de passe" name="password_confirmation" required>
                         </div>
 
                         <!-- Company name -->
                         <div class="mb-3">
                             <label for="company" class="form-label">Nom société </label>
-                            <input id="company" class="form-control" type="text" value="{{$user->company}}" name="company">
+                            <input id="company" class="form-control" type="text" placeholder="Nom société" name="company">
                         </div>
 
                         <!-- Company vat -->
                         <div class="mb-3">
                             <label for="vat" class="form-label">Numéro de TVA(facultatif) </label>
-                            <input id="vat" class="form-control" type="text" value="{{$user->vat}}" name="vat">
+                            <input id="vat" class="form-control" type="text" placeholder="Nom société" name="vat">
                         </div>
 
                         <!-- Adres -->
                         <div class="mb-3">
                             <label for="adres" class="form-label">Rue et numéro* </label>
-                            <input id="adres" class="form-control" type="text" value="{{$user->adres}}" name="adres" required>
+                            <input id="adres" class="form-control" type="text" placeholder="Rue et numéro" name="adres" required>
                         </div>
                         <!-- ZipCode -->
                         <div class="mb-3">
                             <label for="zipCode" class="form-label">Code postal* </label>
-                            <input id="zipCode" class="form-control" type="text" value="{{$user->zipCode}}" name="zipCode" required>
+                            <input id="zipCode" class="form-control" type="text" placeholder="Code postal" name="zipCode" required>
                         </div>
                         <!-- Country -->
                         <div class="mb-3">
                             <label for="country" class="form-label">Country* </label>
-                            <input id="country" class="form-control" type="text" value="{{$user->country}}" name="country" required>
+                            <input id="country" class="form-control" type="text" placeholder="Country" name="country" required>
                         </div>
                         <!-- Phone -->
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone* </label>
-                            <input id="phone" class="form-control" type="text" value="{{$user->phone}}" name="phone" required>
+                            <input id="phone" class="form-control" type="text" placeholder="Phone" name="phone" required>
                         </div>
                         <!-- Max Budget -->
                         <div class="mb-3">
                             <label for="maxBudget" class="form-label">Budget Maximum par véhicule* </label>
-                            <input id="maxBudget" class="form-control" type="text" value="{{$user->maxBudget}}" name="maxBudget" required>
+                            <input id="maxBudget" class="form-control" type="text" placeholder="Budget maximum" name="maxBudget" required>
                         </div>
                         <!-- Max Year -->
                         <div class="mb-3">
                             <label for="maxYear" class="form-label">Age maximum des véhicules* </label>
-                            <input id="maxYear" class="form-control" type="text" value="{{$user->maxYear}}" name="maxYear" required>
+                            <input id="maxYear" class="form-control" type="text" placeholder="Age maximum" name="maxYear" required>
                         </div>
 
                         <div class="mb-4">
@@ -83,7 +102,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($categories as $cat)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='categ' name='tableIdCat[]' value="{{ $cat->id }}" {{$user->categories->where('categorie', '=', $cat->categorie)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input style="width: 100px;" type="checkbox" id='categ' name='tableIdCat[]' value="{{ $cat->id }}"></div>
                                     <div><label for='categ'>{{$cat->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -94,7 +113,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($chassis as $chassi)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='chassi' name='tableIdChassi[]' value="{{ $chassi->id }}" {{$user->chassis->where('chassi', '=', $chassi->chassi)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='chassi' name='tableIdChassi[]' value="{{ $chassi->id }}"></div>
                                     <div><label for='chassi'>{{$chassi->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -105,7 +124,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($carOrigins as $origin)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='origin' name='tableIdOrigin[]' value="{{ $origin->id }}" {{$user->carOrigins->where('origin', '=', $origin->origin)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='origin' name='tableIdOrigin[]' value="{{ $origin->id }}"></div>
                                     <div><label for='origin'>{{$origin->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -116,7 +135,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($emissionClasses as $class)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='class' name='tableIdClass[]' value="{{ $class->id }}" {{$user->emissionClasses->where('class', '=', $class->class)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='class' name='tableIdClass[]' value="{{ $class->id }}"></div>
                                     <div><label for='class'>{{$class->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -127,7 +146,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($gearboxes as $gearbox)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='gearbox' name='tableIdGearbox[]' value="{{ $gearbox->id }}" {{$user->gearboxes->where('gearbox', '=', $gearbox->gearbox)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='gearbox' name='tableIdGearbox[]' value="{{ $gearbox->id }}"></div>
                                     <div><label for='gearbox'>{{$gearbox->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -138,14 +157,23 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($contacts as $contact)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='contact' name='tableIdContact[]' value="{{ $contact->id }}" {{$user->contacts->where('contact', '=', $contact->contact)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='contact' name='tableIdContact[]' value="{{ $contact->id }}"></div>
                                     <div><label for='contact'>{{$contact->name}}</label></div>
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        <button type="submit" class="button red"> Enregistrer </button>
+                        <div class="mb-3">
+                            <div class="remember-checkbox">
+                                <input type="checkbox" name="one" id="one" required />
+                                <label for="one">J'ai lu et j'accepte la politique de confidentalité <a href="/privacy"> Politique de confidentalité</a></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="button red"> Créer un compte </button>
+                        <p class="link">Avez-vous déjà un compte ? <a href="{{ route('login') }}"> Connectez-vous </a></p>
                     </form>
+
+
                 </div>
             </div>
         </div>

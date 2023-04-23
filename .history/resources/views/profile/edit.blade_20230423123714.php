@@ -105,7 +105,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($carOrigins as $origin)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='origin' name='tableIdOrigin[]' value="{{ $origin->id }}" {{$user->carOrigins->where('origin', '=', $origin->origin)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='origin' name='tableIdOrigin[]' value="{{ $origin->id }}" {{$user->carOrigins->where('origin', '=', $origin->origin)->count() == 1 ? 'checked' : ''}}></div>
                                     <div><label for='origin'>{{$origin->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -116,7 +116,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($emissionClasses as $class)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='class' name='tableIdClass[]' value="{{ $class->id }}" {{$user->emissionClasses->where('class', '=', $class->class)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='class' name='tableIdClass[]' value="{{ $class->id }}" {{$user->emissionClasses->where('class', '=', $class->class)->count() == 1 ? 'checked' : ''}}></div>
                                     <div><label for='class'>{{$class->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -127,7 +127,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($gearboxes as $gearbox)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='gearbox' name='tableIdGearbox[]' value="{{ $gearbox->id }}" {{$user->gearboxes->where('gearbox', '=', $gearbox->gearbox)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='gearbox' name='tableIdGearbox[]' value="{{ $gearbox->id }}" {{$user->gearboxes->where('gearbox', '=', $gearbox->gearbox)->count() == 1 ? 'checked' : ''}}></div>
                                     <div><label for='gearbox'>{{$gearbox->name}}</label></div>
                                 </div>
                                 @endforeach
@@ -138,7 +138,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 @foreach($contacts as $contact)
                                 <div class="d-flex col-6 justify-content-start">
-                                    <div class="px-3"><input style="height: 15px; width: 15px;" type="checkbox" id='contact' name='tableIdContact[]' value="{{ $contact->id }}" {{$user->contacts->where('contact', '=', $contact->contact)->count() == 1 ? 'checked' : ''}}></div>
+                                    <div class="px-3"><input type="checkbox" id='contact' name='tableIdContact[]' value="{{ $contact->id }}" {{$user->contacts->where('contact', '=', $contact->contact)->count() == 1 ? 'checked' : ''}}></div>
                                     <div><label for='contact'>{{$contact->name}}</label></div>
                                 </div>
                                 @endforeach

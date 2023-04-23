@@ -28,9 +28,7 @@ car-details  -->
                         @foreach($pictures as $picture)
                         <img class="img-fluid" src="{{asset($picture->location)}}" alt="">
                         @endforeach
-                        @if($pictures->count() < 1)
-                        <img class="img-fluid" src="{{asset('images/logo-dark.png')}}" alt="">
-                        @endif
+                        @if($pictures->count)
                     </div>
                     <div class="slider slider-nav">
                         @foreach($pictures as $picture)
@@ -44,9 +42,6 @@ car-details  -->
                         @foreach($assetPictures as $picture)
                         <img class="img-fluid" src="{{asset($picture->location)}}" alt="">
                         @endforeach
-                        @if($assetPictures->count() < 1)
-                        <img class="img-fluid" src="{{asset('images/logo-dark.png')}}" alt="">
-                        @endif
                     </div>
                     <div class="slider slider-nav">
                         @foreach($assetPictures as $picture)
@@ -60,9 +55,6 @@ car-details  -->
                         @foreach($drowbackPictures as $picture)
                         <img class="img-fluid" src="{{asset($picture->location)}}" alt="">
                         @endforeach
-                        @if($drowbackPictures->count() < 1)
-                        <img class="img-fluid" src="{{asset('images/logo-dark.png')}}" alt="">
-                        @endif
                     </div>
                     <div class="slider slider-nav">
                         @foreach($drowbackPictures as $picture)
