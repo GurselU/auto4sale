@@ -9,7 +9,7 @@
           <div class="topbar-left text-lg-start text-center">
             <ul class="list-inline">
               <li> <i class="fa fa-envelope-o"> </i> auto@autoforsale.be</li>
-              <li> <i class="fa fa-clock-o"></i> 7/7 jours 24/24 heures</li>
+              <li> <i class="fa fa-clock-o"></i> Lundi - Dimanche 08:00 - 22:00</li>
             </ul>
           </div>
         </div>
@@ -46,28 +46,34 @@
               <!-- menu links -->
               <ul class="menu-links">
                 <!-- active class -->
-                @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-                <li class="{{ (request()->routeIs('user.index')) ? 'active' : '' }}"><a href="{{route('user.index')}}">Utilisateurs</a></li>
-                <li class="{{ (request()->routeIs('seller.create')) ? 'active' : '' }}"><a href="{{route('seller.create')}}">Formulaire</a></li>
-                <li class="{{ (request()->routeIs('archive.index')) ? 'active' : '' }}"><a href="{{route('archive.index')}}">Archives</a></li>
-                <li class="{{ (request()->routeIs('form.index')) ? 'active' : '' }}"><a href="{{route('form.index')}}">To Call</a></li>
-                @endif
-                <li class="{{ (request()->routeIs('car.index')) ? 'active' : '' }}"><a href="{{route('car.index')}}">Véhicules</a></li>
-                <li><a href="javascript:void(0)"> {{Auth::user()->name}} <i class="fa fa-angle-down fa-indicator"></i></a>
-                  <!-- drop down multilevel  -->
-                  <ul class="drop-down-multilevel">
-                    <li><a href="{{route('profile.edit')}}">Profile</a></li>
+                <li class="{{ request()->path() == '/' ? 'active' : '' }}"><a href="{{ url('') }}">Home</a></li>
+                <li class="{{ request()->path() == 'dealer' ? 'active' : '' }}"><a href="{{ url('dealer') }}">Vous êtes marchands ?</a></li>
+                @auth
+                <li><a href="{{ url('/admin/car') }}">Véhicules</a></li>
+                <li class="nav-item dropdown {{ (request()->routeIs('profile.edit')) ? 'active' : '' }}">
+                  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{Auth::user()->name}}
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
                     <li>
-                      <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="dropdown-item" type="submit">Se déconnecter</button>
-                      </form>
+                      <hr class="dropdown-divider">
                     </li>
+                    <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+                      <li><button class="dropdown-item" type="submit">Se déconnecter</button></li>
+                    </form>
                   </ul>
                 </li>
+                @else
+                <li class="{{ request()->path() == 'login' ? 'active' : '' }}"><a href="{{ route('login') }}">Log in</a></li>
 
+                <li class="{{ request()->path() == 'register' ? 'active' : '' }}"><a href="{{ route('register') }}">Register</a></li>
+                @endauth
 
               </ul>
+
+
             </div>
           </div>
         </div>

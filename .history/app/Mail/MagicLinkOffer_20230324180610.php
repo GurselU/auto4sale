@@ -34,8 +34,8 @@ class MagicLinkOffer extends Mailable
      */
     public function build()
     {
-        return $this->from('auto@auto4sale.be')
-                    ->subject('Nouveau véhicule sur Auto4Sale')
+        return $this->from('gurselunlu@gmail.com')
+                    ->subject('Magic Link')
                     ->view('admin.emails.newCar');
     }
 }

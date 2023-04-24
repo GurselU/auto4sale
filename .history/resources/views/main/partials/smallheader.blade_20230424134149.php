@@ -1,5 +1,4 @@
-  <!--=================================
- mega menu -->
+
 
   <div class="menu">
     <!-- menu start -->
@@ -16,9 +15,6 @@
                 </li>
               </ul>
               <!-- menu links -->
-              <ul class="menu-links">
-                <li class="{{ (request()->routeIs('car.index')) ? 'active' : '' }}"><a href="{{route('car.index')}}">Véhicules</a></li>
-              </ul>
             </div>
           </div>
         </div>

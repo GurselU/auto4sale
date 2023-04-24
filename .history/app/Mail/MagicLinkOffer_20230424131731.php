@@ -35,7 +35,7 @@ class MagicLinkOffer extends Mailable
     public function build()
     {
         return $this->from('auto@auto4sale.be')
-                    ->subject('Nouveau véhicule sur Auto4Sale')
+                    ->subject('Nouveau véhicule ')
                     ->view('admin.emails.newCar');
     }
 }

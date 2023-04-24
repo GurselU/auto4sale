@@ -9,22 +9,20 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MagicLinkOffer extends Mailable
+class MagicLinkMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    
     public $magicLink = [];
-    public $car =[];
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($magicLink, $car)
+    public function __construct($magicLink)
     {
         $this->magicLink = $magicLink;
-        $this->car = $car;
     }
 
     /**
@@ -34,8 +32,8 @@ class MagicLinkOffer extends Mailable
      */
     public function build()
     {
-        return $this->from('auto@auto4sale.be')
-                    ->subject('Nouveau véhicule sur Auto4Sale')
-                    ->view('admin.emails.newCar');
+        return $this->from('gurselunlu@gmail.com')
+                    ->subject('Magic Link')
+                    ->view('admin.emails.login');
     }
 }

@@ -8,8 +8,8 @@
         <div class="col-lg-6 col-md-12">
           <div class="topbar-left text-lg-start text-center">
             <ul class="list-inline">
-              <li> <i class="fa fa-envelope-o"> </i> auto@autoforsale.be</li>
-              <li> <i class="fa fa-clock-o"></i> 7/7 jours 24/24 heures</li>
+              <li> <i class="fa fa-envelope-o"> </i> info@autoforsale.be</li>
+              <li> <i class="fa fa-clock-o"></i> Lundi - Dimanche 08:00 - 22:00</li>
             </ul>
           </div>
         </div>

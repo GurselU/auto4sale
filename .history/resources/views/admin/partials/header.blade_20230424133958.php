@@ -9,7 +9,7 @@
           <div class="topbar-left text-lg-start text-center">
             <ul class="list-inline">
               <li> <i class="fa fa-envelope-o"> </i> auto@autoforsale.be</li>
-              <li> <i class="fa fa-clock-o"></i> 7/7 jours 24/24 heures</li>
+              <li> <i class="fa fa-clock-o"></i> 7/</li>
             </ul>
           </div>
         </div>

@@ -21,7 +21,7 @@
                                 </li>
                             </ul>
                             <!-- menu links -->
-                            <ul>
+                            <ul class="d-flex">
                                 <!-- active class -->
                                 <li><a href="{{route('car.index')}}">Véhicules</a></li>
                                 <li class="{{ (request()->routeIs('picture.show', $car->id)) ? 'active' : '' }}"><a href="{{route('picture.show', $car->id)}}">General</a></li>
