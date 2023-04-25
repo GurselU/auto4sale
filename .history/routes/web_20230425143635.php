@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('dealer', function(){return view('main.dealer.dealer');});
 Route::get('forsale', function(){return view('main.forsale.forsale');});
 Route::get('faq', function(){return view('main.faq.faq');});
-Route::get('privacy', function(){return view('main.privacypolicy.privacypolicy');});
+
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
